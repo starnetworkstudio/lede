@@ -74,6 +74,16 @@ define Device/dilusense_dlfr100
 endef
 TARGET_DEVICES += dilusense_dlfr100
 
+define Device/cyber_cyber3588-aib
+  DEVICE_VENDOR := Cyber
+  DEVICE_MODEL := 3588 AIB
+  SOC := rk3588
+  UBOOT_DEVICE_NAME := cyber3588-aib-rk3588
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-ata-ahci-dwc kmod-r8125-rss
+endef
+TARGET_DEVICES += cyber_cyber3588-aib
+
 define Device/ezpro_mrkaio-m68s
   DEVICE_VENDOR := EZPRO
   DEVICE_MODEL := Mrkaio M68S
@@ -122,6 +132,16 @@ define Device/friendlyarm_nanopi-neo3
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-bin | gzip | append-metadata
 endef
 TARGET_DEVICES += friendlyarm_nanopi-neo3
+
+define Device/friendlyarm_nanopc-t6
+  DEVICE_VENDOR := FriendlyARM
+  DEVICE_MODEL := NanoPC T6
+  SOC := rk3588
+  UBOOT_DEVICE_NAME := nanopc-t6-rk3588
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8125-rss 
+endef
+TARGET_DEVICES += friendlyarm_nanopc-t6
 
 define Device/friendlyarm_nanopi-r2c
   DEVICE_VENDOR := FriendlyARM
